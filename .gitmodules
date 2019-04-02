@@ -1,0 +1,3 @@
+[submodule "elworado"]
+	path = elworado
+	url = https://github.com/braun/elworado.git/
