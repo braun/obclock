@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "obclock",
   "version": "1.0.0",
-  "description": "",
+  "description": "Orienteering start clock",
   "main": "index.html",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/braun/obclock.git"
   },
   "keywords": [
     "STYLE"
