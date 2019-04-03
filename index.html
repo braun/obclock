@@ -5,6 +5,8 @@
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <link rel="stylesheet" href="common/fontawesome/css/all.min.css">
         <link rel="stylesheet/less" type="text/css"  href="elworado/elstyle.less">
+        <link rel="stylesheet/less" type="text/css"  href="elworado/layouts.less">
+        <link rel="stylesheet/less" type="text/css"  href="obclock.less">
         <script src="common/less.min.js"></script>
         <script src="bundle.js"></script>
     </head>
@@ -13,8 +15,26 @@
         <span class="fa fa-spin fa-spinner fa-2x"></span>
         <h2>Nahrávám</h2>
     </div>
-    <H1 elbind elmodel="title"></H1>
- 
+    <div class="layout-overall dialog-container" elbind elshow="scope.setupVisible">
+       <div class="dialog">
+           <header>Nastavení</header>
+           <div class="content">
+               <div>
+                   Téma: <select elwidget="select" elcodebook="themes.json" elmodel="bindTheme"></select>
+               </div>
+              <!--<div> <button elbind elaction="scope.toggleInterval()">Start/Stop</button></div>-->
+               <div><button elbind elaction="scope.resetInterval()">Vynuluj Stopky</button></div>
+           </div>
+           <footer>
+               <button elbind elaction="scope.toggleSetup()">Ok</button>
+            </footer>
+       </div>
+    </div>
+    <div elwire elid="clock" elcontroller>
+        <span class="burger fa fa-2x fa-bars" elbind elaction="scope.toggleSetup()"></span>
+        <H1 elbind elmodel="mins"></H1>
+        <H2 elbind elmodel="time"></H2>
+    </div>
     </body>
     
 </html>

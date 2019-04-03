@@ -1,0 +1,16 @@
+[
+    {"name":"Píp","value":"beep",
+        "data":
+        {
+            "beep":"theme/beep/beep.ogg",
+            "short":"theme/beep/short.mp3"
+        }
+    },
+    {"name":"Kukačky","value":"cuckoo",
+        "data":
+        {
+            "beep":"theme/cuckoo/beep.mp3",
+            "short":"theme/cuckoo/short.mp3"
+        }
+    }
+]

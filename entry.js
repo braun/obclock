@@ -15,5 +15,7 @@ window.soundPlayer = require('./elworado/soundPlayer');
 
 window.elwire = require('./elworado/elwire');
 window.ElApp = window.elwire.ElApp;
+require("./elworado/httphelper");
+
 var app = require('./app');
 

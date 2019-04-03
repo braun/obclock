@@ -1,0 +1,9 @@
+{
+  "Author":"Stanislav Kunt",
+  "Name": "obclock",
+  "Version": "1.0.0",
+  "Title":"obclock",
+  
+  "BaseUrl":"file://obclock",
+  "IndexPage":"index.html"
+}
