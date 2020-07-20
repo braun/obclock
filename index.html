@@ -19,6 +19,12 @@
        <div class="dialog">
            <header>Nastavení</header>
            <div class="content">
+                <div>
+                       Čas nula: <input type="datetime-local" elbind elmodel="bindZerot">
+                </div>
+                <div>
+                        Zvuk: <span elbind elwidget="checkbox" elmodel="setup.doSounds"></span>
+                 </div>
                <div>
                    Téma: <select elwidget="select" elcodebook="themes.json" elmodel="bindTheme"></select>
                </div>

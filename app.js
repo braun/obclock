@@ -4,20 +4,21 @@ var moment = require("moment");
 var soundPlayer = require("./elworado/soundPlayer");
 var fullscreen = require("./elworado/fullscreen");
 require("./elworado/domhelper");
+require("./elworado/httphelper");
 var widgets = require("./elworado/elwidget");
 widgets.registerStdWidgets();
 
-window.app = new elwire.ElApp(function(scope)
+window.app = new elwire.ElApp.install(function(scope)
 {
    fullscreen.on();
    scope.setupVisible = false;
    scope.setup = 
    {
-       soundEffects:true,
-       theme:"beep"
+       theme:"beep",
+       doSounds: true
    }
     splash.showSplash(false);
-
+   
     
    var zerot = null;
    
@@ -68,15 +69,17 @@ window.app = new elwire.ElApp(function(scope)
         var secs = Math.abs(secsCounter%60);
         var minCounter = Math.trunc(secsCounter/60);
         var neg = secsCounter<0;
-        var mins = minCounter%60;
+        var mins = Math.abs(minCounter);
         scope.mins = neg ? (-mins-1):mins;
         scope.time = (neg ? "-":"")+(mins)+":"+(("00" + secs).slice(-2));
-        if(secs == 0)
-            soundPlayer.play(scope.theme.data.beep,3);
-       if((!neg && secs > 56) || (neg && secs < 4))
-            soundPlayer.play(scope.theme.data.short);
+        if(scope.setup.doSounds)
+        {
+            if(secs == 0)
+                soundPlayer.play(scope.theme.data.beep,3);
+            else if((!neg && secs > 56) || (neg && secs < 4))
+                soundPlayer.play(scope.theme.data.short);          
+        }
         scope.clock.elbind.bind();
-
     }
     scope.toggleInterval = function()
     {
@@ -119,6 +122,19 @@ window.app = new elwire.ElApp(function(scope)
         }
         return scope.theme.value;        
             
+    }
+    scope.bindZerot = function(val,el)
+    {
+        if(val === undefined)
+        {
+            return zerot.format("YYYY-MM-DDTHH:mm:ss");
+        }
+        else
+        {
+            zerot = moment(val);
+            localStorage.setItem("zerot",zerot.toISOString());
+            scope.clock.bind();
+        }
     }
     scope.runInterval();
 });

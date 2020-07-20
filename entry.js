@@ -17,5 +17,9 @@ window.elwire = require('./elworado/elwire');
 window.ElApp = window.elwire.ElApp;
 require("./elworado/httphelper");
 
+
+const flatpickr = require('flatpickr');
+window.czech = require("flatpickr/dist/l10n/cs.js").default.cs;
+
 var app = require('./app');
 
